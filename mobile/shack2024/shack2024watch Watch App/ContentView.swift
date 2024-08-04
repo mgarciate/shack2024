@@ -17,6 +17,24 @@ struct ContentView: View {
         }
         .padding()
     }
+    
+    init() {
+        let healthDataService = HealthDataService()
+
+        healthDataService.requestHealthKitPermissions { success, error in
+            if success {
+                healthDataService.fetchHealthData { healthData, error in
+                    if let error = error {
+                        print("Error fetching health data: \(error.localizedDescription)")
+                    } else {
+                        print("Health Data: \(healthData)")
+                    }
+                }
+            } else {
+                print("HealthKit permissions denied: \(error?.localizedDescription ?? "Unknown error")")
+            }
+        }
+    }
 }
 
 #Preview {

@@ -16,6 +16,8 @@
 		096188E82C6041A200A0E5EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096188E72C6041A200A0E5EA /* Assets.xcassets */; };
 		096188EB2C6041A200A0E5EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096188EA2C6041A200A0E5EA /* Preview Assets.xcassets */; };
 		096188EE2C6041A200A0E5EA /* shack2024watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 096188E12C6041A100A0E5EA /* shack2024watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		097D7A2B2C604330009077A2 /* HealthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097D7A2A2C604330009077A2 /* HealthDataService.swift */; };
+		097D7A2C2C604330009077A2 /* HealthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097D7A2A2C604330009077A2 /* HealthDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		096188E52C6041A100A0E5EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		096188E72C6041A200A0E5EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		096188EA2C6041A200A0E5EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		097D7A2A2C604330009077A2 /* HealthDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataService.swift; sourceTree = "<group>"; };
+		097D7A2D2C6043DE009077A2 /* shack2024watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "shack2024watch Watch App.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			children = (
 				096188CF2C603F1600A0E5EA /* shack2024App.swift */,
 				096188D12C603F1600A0E5EA /* ContentView.swift */,
+				097D7A2A2C604330009077A2 /* HealthDataService.swift */,
 				096188D32C603F1700A0E5EA /* Assets.xcassets */,
 				096188D52C603F1700A0E5EA /* Preview Content */,
 			);
@@ -113,6 +118,7 @@
 		096188E22C6041A100A0E5EA /* shack2024watch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				097D7A2D2C6043DE009077A2 /* shack2024watch Watch App.entitlements */,
 				096188E32C6041A100A0E5EA /* shack2024watchApp.swift */,
 				096188E52C6041A100A0E5EA /* ContentView.swift */,
 				096188E72C6041A200A0E5EA /* Assets.xcassets */,
@@ -233,6 +239,7 @@
 			files = (
 				096188D22C603F1600A0E5EA /* ContentView.swift in Sources */,
 				096188D02C603F1600A0E5EA /* shack2024App.swift in Sources */,
+				097D7A2B2C604330009077A2 /* HealthDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +249,7 @@
 			files = (
 				096188E62C6041A100A0E5EA /* ContentView.swift in Sources */,
 				096188E42C6041A100A0E5EA /* shack2024watchApp.swift in Sources */,
+				097D7A2C2C604330009077A2 /* HealthDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "shack2024watch Watch App/shack2024watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"shack2024watch Watch App/Preview Content\"";
@@ -447,6 +456,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = shack2024watch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "$(PRODUCT_NAME) needs your health data";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = es.mgarciate.shack2024;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -471,6 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "shack2024watch Watch App/shack2024watch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"shack2024watch Watch App/Preview Content\"";
@@ -478,6 +489,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = shack2024watch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "$(PRODUCT_NAME) needs your health data";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = es.mgarciate.shack2024;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
