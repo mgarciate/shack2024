@@ -29,7 +29,7 @@ class HealthDataService {
         }
     }
     
-    // Obtiene datos de HealthKit
+    // Obtiene y formatea datos de HealthKit
     func fetchHealthData(completion: @escaping ([String: Any]?, Error?) -> Void) {
         let dataTypes: [HKSampleType] = [
             HKSampleType.quantityType(forIdentifier: .heartRate)!,
@@ -61,13 +61,17 @@ class HealthDataService {
                 }
                 
                 if let samples = samples {
-                    var data = [Any]()
+                    var data = [[String: Any]]()
                     for sample in samples {
+                        var sampleData = [String: Any]()
                         if let quantitySample = sample as? HKQuantitySample {
-                            data.append(quantitySample.quantity)
+                            sampleData["value"] = self.formatQuantitySample(quantitySample)
                         } else if let categorySample = sample as? HKCategorySample {
-                            data.append(categorySample.value)
+                            sampleData["value"] = self.formatCategorySample(categorySample)
                         }
+                        sampleData["startDate"] = sample.startDate
+                        sampleData["endDate"] = sample.endDate
+                        data.append(sampleData)
                     }
                     healthData[dataType.identifier] = data
                 }
@@ -78,5 +82,71 @@ class HealthDataService {
         dispatchGroup.notify(queue: .main) {
             completion(healthData, nil)
         }
+    }
+    
+    private func formatQuantitySample(_ sample: HKQuantitySample) -> String {
+        let quantityType = sample.quantityType
+        let quantity = sample.quantity
+        var unit: HKUnit
+        var formattedValue = ""
+        
+        switch quantityType {
+        case HKObjectType.quantityType(forIdentifier: .heartRate):
+            unit = HKUnit.count().unitDivided(by: HKUnit.minute())
+            formattedValue = String(format: "%.0f BPM", quantity.doubleValue(for: unit))
+        case HKObjectType.quantityType(forIdentifier: .activeEnergyBurned):
+            unit = HKUnit.kilocalorie()
+            formattedValue = String(format: "%.2f kcal", quantity.doubleValue(for: unit))
+        case HKObjectType.quantityType(forIdentifier: .stepCount):
+            unit = HKUnit.count()
+            formattedValue = String(format: "%.0f steps", quantity.doubleValue(for: unit))
+        case HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning):
+            unit = HKUnit.meterUnit(with: .kilo)
+            formattedValue = String(format: "%.2f km", quantity.doubleValue(for: unit))
+        case HKObjectType.quantityType(forIdentifier: .oxygenSaturation):
+            unit = HKUnit.percent()
+            formattedValue = String(format: "%.2f%%", quantity.doubleValue(for: unit) * 100)
+        case HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN):
+            unit = HKUnit.secondUnit(with: .milli)
+            formattedValue = String(format: "%.2f ms", quantity.doubleValue(for: unit))
+        case HKObjectType.quantityType(forIdentifier: .vo2Max):
+            unit = HKUnit(from: "ml/kg*min")
+            formattedValue = String(format: "%.2f ml/kg*min", quantity.doubleValue(for: unit))
+        default:
+            formattedValue = "\(quantity)"
+        }
+        
+        return formattedValue
+    }
+    
+    private func formatCategorySample(_ sample: HKCategorySample) -> String {
+        let categoryType = sample.categoryType
+        var formattedValue = ""
+        
+        switch categoryType {
+        case HKObjectType.categoryType(forIdentifier: .sleepAnalysis):
+            let value = HKCategoryValueSleepAnalysis(rawValue: sample.value)
+            formattedValue = value == .inBed ? "In Bed" : "Asleep"
+        case HKObjectType.categoryType(forIdentifier: .menstrualFlow):
+            let value = HKCategoryValueMenstrualFlow(rawValue: sample.value)
+            switch value {
+            case .unspecified:
+                formattedValue = "Unspecified"
+            case .light:
+                formattedValue = "Light"
+            case .medium:
+                formattedValue = "Medium"
+            case .heavy:
+                formattedValue = "Heavy"
+            case .none:
+                formattedValue = "None"
+            @unknown default:
+                formattedValue = "Unknown"
+            }
+        default:
+            formattedValue = "\(sample.value)"
+        }
+        
+        return formattedValue
     }
 }
