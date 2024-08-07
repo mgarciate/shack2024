@@ -1,0 +1,17 @@
+{
+  "name": "eas-attestation-client",
+  "version": "1.0.0",
+  "description": "Attest with the explorer sample code",
+  "main": "index.js",
+  "author": "mgarciate",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@ethereum-attestation-service/eas-sdk": "ethereum-attestation-service/eas-sdk",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
+  }
+}
