@@ -14,9 +14,10 @@
   dependencies:
     hardhat "2.22.1"
 
-"@ethereum-attestation-service/eas-sdk@ethereum-attestation-service/eas-sdk":
+"@ethereum-attestation-service/eas-sdk@^2.5.0":
   version "2.5.0"
-  resolved "https://codeload.github.com/ethereum-attestation-service/eas-sdk/tar.gz/6a0c1f89d5512df2fec790343f328c4394037cc4"
+  resolved "https://registry.yarnpkg.com/@ethereum-attestation-service/eas-sdk/-/eas-sdk-2.5.0.tgz#58319c8ab15d522cef9eeaea0e1d2cf65659299b"
+  integrity sha512-3Lt7mDmrIjJqfWcR2rMpwzOOcbcn39G02ziXJbkO9R9FNro4U9uZSyhh1iQsbXUgf0LLisd3LrcrmNg8Wo9rKA==
   dependencies:
     "@ethereum-attestation-service/eas-contracts" "1.4.1"
     "@openzeppelin/merkle-tree" "^1.0.6"

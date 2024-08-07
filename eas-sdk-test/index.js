@@ -28,6 +28,14 @@ const eas = new EAS(easContractAddress);
 // Connect the signer to EAS
 await eas.connect(signer);
 
+// Revoke an attestation
+// const tx = await eas.revoke({
+//     schema: '0x135e8fe67404c2d25df8a4a31ec12f401d1f6432acc42dcf4bb44b9ce1d04a8b',
+//     data: { uid: '0x8e9954e4dac3045c3be92f3183e91bbad33fa513ef28a4a796be9bc58d6ddaf9' }
+// });
+
+// await tx.wait();
+
 // Initialize SchemaEncoder with the schema string
 const schemaEncoder = new SchemaEncoder("bool vote");
 
