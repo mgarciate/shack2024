@@ -18,6 +18,7 @@
 		096188EE2C6041A200A0E5EA /* shack2024watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 096188E12C6041A100A0E5EA /* shack2024watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		097D7A2B2C604330009077A2 /* HealthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097D7A2A2C604330009077A2 /* HealthDataService.swift */; };
 		097D7A2C2C604330009077A2 /* HealthDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097D7A2A2C604330009077A2 /* HealthDataService.swift */; };
+		09B8C0C72C63F7440036C704 /* eas-sdk-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 09B8C0C62C63F7440036C704 /* eas-sdk-swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		096188EA2C6041A200A0E5EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		097D7A2A2C604330009077A2 /* HealthDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataService.swift; sourceTree = "<group>"; };
 		097D7A2D2C6043DE009077A2 /* shack2024watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "shack2024watch Watch App.entitlements"; sourceTree = "<group>"; };
+		09B8C0C42C63F6DC0036C704 /* eas-sdk-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "eas-sdk-swift"; path = "../../eas-sdk-swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B8C0C72C63F7440036C704 /* eas-sdk-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +83,11 @@
 		096188C32C603F1600A0E5EA = {
 			isa = PBXGroup;
 			children = (
+				09B8C0C42C63F6DC0036C704 /* eas-sdk-swift */,
 				096188CE2C603F1600A0E5EA /* shack2024 */,
 				096188E22C6041A100A0E5EA /* shack2024watch Watch App */,
 				096188CD2C603F1600A0E5EA /* Products */,
+				09B8C0C52C63F7440036C704 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +140,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		09B8C0C52C63F7440036C704 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +165,9 @@
 				096188ED2C6041A200A0E5EA /* PBXTargetDependency */,
 			);
 			name = shack2024;
+			packageProductDependencies = (
+				09B8C0C62C63F7440036C704 /* eas-sdk-swift */,
+			);
 			productName = shack2024;
 			productReference = 096188CC2C603F1600A0E5EA /* shack2024.app */;
 			productType = "com.apple.product-type.application";
@@ -540,6 +555,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		09B8C0C62C63F7440036C704 /* eas-sdk-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "eas-sdk-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 096188C42C603F1600A0E5EA /* Project object */;
 }
