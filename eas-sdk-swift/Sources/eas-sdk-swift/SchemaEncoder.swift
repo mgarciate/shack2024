@@ -6,7 +6,8 @@
 //
 
 public enum SchemaValue: StringLiteralType {
-    case string, boolean, number
+    case string, number
+    case boolean = "bool"
 }
 
 public protocol SchemaItemProtocol {
@@ -47,5 +48,6 @@ public class SchemaEncoder {
         }
         
         var data: [Any] = []
+        return ""
     }
 }
